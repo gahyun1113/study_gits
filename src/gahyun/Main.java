@@ -28,31 +28,7 @@ public class Main {
                 int choice = scanner.nextInt();
                 scanner.nextLine();
 
-                switch (choice) {
-                    case 1:
-                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[0]);
-                        break;
-
-                    case 2:
-                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[1]);
-                        break;
-
-                    case 3:
-                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[2]);
-                        break;
-
-                    case 4:
-                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[3]);
-                        break;
-
-                    case 5:
-                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[4]);
-                        break;
-
-                    default:
-                        break;
-
-                }
+                userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[choice-1]);
 
                 System.out.println("Status:  완료");
 
@@ -67,7 +43,6 @@ public class Main {
                 }
 
             }
-
 
 
         }
