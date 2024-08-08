@@ -15,7 +15,7 @@ public class Main {
         while (exit) {
             System.out.print("Input Your Name: ");
             String name = scanner.nextLine();
-            User user = new User(name, new Todo(false, false, false, false, false));
+            User user = new User(name, new Todo());
             users.add(user);
             userMap.put(name, user);
 
@@ -30,23 +30,23 @@ public class Main {
 
                 switch (choice) {
                     case 1:
-                        userMap.get(name).getTodo().setCompleted_01(true);
+                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[0]);
                         break;
 
                     case 2:
-                        userMap.get(name).getTodo().setCompleted_02(true);
+                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[1]);
                         break;
 
                     case 3:
-                        userMap.get(name).getTodo().setCompleted_03(true);
+                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[2]);
                         break;
 
                     case 4:
-                        userMap.get(name).getTodo().setCompleted_04(true);
+                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[3]);
                         break;
 
                     case 5:
-                        userMap.get(name).getTodo().setCompleted_05(true);
+                        userMap.get(name).getTodo().setTodoMap(Todo.todoTitle[4]);
                         break;
 
                     default:
@@ -77,14 +77,11 @@ public class Main {
 
         for (User user : users) {
             System.out.println("-" + user.getName());
-            for (int i = 0; i < Todo.todoList.length; i++) {
-                System.out.println(Todo.todoList[i]+" : ");
+
+            for (int i = 0; i < Todo.todoTitle.length; i++) {
+                System.out.println(Todo.todoTitle[i]+" : " + user.getTodo().isCompleted(Todo.todoTitle[i]));
             }
-            System.out.println("1. 주간 보고서 작성 : " +user.getTodo().isCompleted_01());
-            System.out.println("2. 이메일 확인 및 응답 : " +user.getTodo().isCompleted_02());
-            System.out.println("3. 회의 준비 : " +user.getTodo().isCompleted_03());
-            System.out.println("4. 프로젝트 계획서 수정 : " +user.getTodo().isCompleted_04());
-            System.out.println("5. 팀 멤버와의 1:1 면담 : " +user.getTodo().isCompleted_05());
+
             System.out.println();
         }
 

@@ -2,6 +2,12 @@ package hyungmin;
 
 import java.util.*;
 
+class UserTodoRecord {
+    String userName;
+    Map<Integer, Todo> todoMap;
+    // 차후 리팩토링하여 userTodoMapStorage 대신 사용가능할 것으로 판단
+}
+
 
 class Todo {
     String content;
